@@ -48,6 +48,7 @@ function tfl_create()
 	for(let i = 0; i < lineTotal; i++)
 	{
 		displayList["lineName" + i] = document.querySelector(".g" + i + " p");
+		displayList["lineInfoMain" + i] = document.querySelector(".i" + i);
 		displayList["lineInfo" + i] = document.querySelector(".i" + i + " p");
 	}
 
@@ -73,26 +74,28 @@ function tfl_run()
 
 		if(statusFormat === "good service" || statusFormat === "no issues")
 		{
-			statusMsg = goodMSG_ARR[Math.floor(Math.random() * goodMSG_ARR.length)];
+			// statusMsg = goodMSG_ARR[Math.floor(Math.random() * goodMSG_ARR.length)];
+			statusMsg = "KINDA GOOD";
 		}
 
 		else if(statusFormat === "minor delays" || statusFormat === "reduced service" || statusFormat === "part suspended" || statusFormat ==="part closure")
 		{
 			statusMsg = "A BIT FUCKED";
 
-			displayList["lineInfo" + i].classList.add("highlight");
+			displayList["lineInfoMain" + i].classList.add("highlight");
 		}
 
 		else if(statusFormat === "severe delays" || statusFormat === "not running" || statusFormat === "suspended" || statusFormat === "closed")
 		{
 			statusMsg = "VERY FUCKED";
 
-			displayList["lineInfo" + i].classList.add("highlight");
+			displayList["lineInfoMain" + i].classList.add("highlight");
 		}
 
 		else
 		{
-			statusMsg = goodMSG_ARR[Math.floor(Math.random() * goodMSG_ARR.length)];
+			// statusMsg = goodMSG_ARR[Math.floor(Math.random() * goodMSG_ARR.length)];
+			statusMsg = "KINDA GOOD";
 		}
 
 		displayList["lineName" + i].innerHTML = tubeMsg;
