@@ -9,6 +9,17 @@ html, body
 {
 	width: 100%;
 	height: 100%;
+
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	font-size: 1.5vh;
+
+	color: #fff;
+}
+
+.font-bold
+{
+	font-weight: 900;
 }
 
 .grid-wrapper
@@ -34,9 +45,22 @@ html, body
 {
 	display: grid;
 	grid-template-columns: var(--grid-column-width) var(--grid-column-width) var(--grid-column-width);
-	grid-template-columns: 1fr;
+	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 	grid-gap: 0;
+}
+
+.grid-item
+{
+
+}
+
+.grid-item p
+{
+	position: relative;
+	margin-left: 1em;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .g0

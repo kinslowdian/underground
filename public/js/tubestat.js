@@ -5,6 +5,8 @@ var trace = function(msg){ console.log(msg); };
 // https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/Line/Line_StatusByMode
 
 var system;
+var displayList;
+var lineTotal;
 
 function pageLoad_init()
 {
@@ -16,6 +18,8 @@ function pageLoad_init()
 function grid_init()
 {
 	system = {};
+
+	displayList = {};
 
 	data_init_tfl();
 }
@@ -33,38 +37,51 @@ function data_loaded_tfl(data)
 	trace(system.data_tfl.length);
 	trace(system.data_tfl[0].lineStatuses[0].statusSeverityDescription);
 
-	data_loaded_tfl_read();
+	tfl_create();
 }
 
-function data_loaded_tfl_read()
+function tfl_create()
 {
-	let dataTotal = system.data_tfl.length;
+	lineTotal = system.data_tfl.length;
 
-	for(let i = 0; i < dataTotal; i++)
+	for(let i = 0; i < lineTotal; i++)
+	{
+		displayList["lineInfo" + i] = document.querySelector(".g" + i + " p");
+	}
+
+	tfl_run();
+}
+
+function tfl_run()
+{
+	for(let i = 0; i < lineTotal; i++)
 	{
 		let tubeName = system.data_tfl[i].id;
 		let status = system.data_tfl[i].lineStatuses[0].statusSeverityDescription;
 		let statusFormat = status.toLowerCase();
+		let statusMsg = "";
 
 		if(statusFormat === "good service" || statusFormat === "no issues")
 		{
-			trace(tubeName.toUpperCase() + " LINE IS NOT FUCKED");
+			statusMsg = tubeName.toUpperCase() + " LINE IS OK";
 		}
 
 		else if(statusFormat === "minor delays" || statusFormat === "reduced service" || statusFormat === "part suspended" || statusFormat ==="part closure")
 		{
-			trace(tubeName.toUpperCase() + " LINE IS A BIT FUCKED");
+			statusMsg = tubeName.toUpperCase() + " LINE IS A BIT FUCKED";
 		}
 
 		else if(statusFormat === "severe delays" || statusFormat === "not running" || statusFormat === "suspended" || statusFormat === "closed")
 		{
-			trace(tubeName.toUpperCase() + " LINE IS FUCKED");
+			statusMsg = tubeName.toUpperCase() + " LINE IS FUCKED";
 		}
 
 		else
 		{
-			trace(tubeName.toUpperCase() + " LINE IS NOT FUCKED");
+			statusMsg = tubeName.toUpperCase() + " LINE IS OK";
 		}
+
+		displayList["lineInfo" + i].innerHTML = statusMsg;
 
 		trace(system.data_tfl[i].lineStatuses[0].statusSeverityDescription);
 	}
