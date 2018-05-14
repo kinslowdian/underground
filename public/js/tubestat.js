@@ -7,6 +7,7 @@ var trace = function(msg){ console.log(msg); };
 var system;
 var displayList;
 var lineTotal;
+var goodMSG_ARR;
 
 function pageLoad_init()
 {
@@ -50,6 +51,12 @@ function tfl_create()
 		displayList["lineInfo" + i] = document.querySelector(".i" + i + " p");
 	}
 
+	goodMSG_ARR = new Array();
+	goodMSG_ARR.push("OK");
+	goodMSG_ARR.push("KINDA GOOD");
+	goodMSG_ARR.push("NICE");
+	goodMSG_ARR.push("BETTER THAN USUAL");
+
 	tfl_run();
 }
 
@@ -65,7 +72,7 @@ function tfl_run()
 
 		if(statusFormat === "good service" || statusFormat === "no issues")
 		{
-			statusMsg = "OK";
+			statusMsg = goodMSG_ARR[Math.floor(Math.random() * goodMSG_ARR.length)];
 		}
 
 		else if(statusFormat === "minor delays" || statusFormat === "reduced service" || statusFormat === "part suspended" || statusFormat ==="part closure")
