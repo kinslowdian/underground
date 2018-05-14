@@ -48,22 +48,22 @@ function data_loaded_tfl_read()
 
 		if(statusFormat === "good service" || statusFormat === "no issues")
 		{
-			trace(tubeName + " = NOT FUCKED");
+			trace(tubeName.toUpperCase() + " LINE IS NOT FUCKED");
 		}
 
 		else if(statusFormat === "minor delays" || statusFormat === "reduced service" || statusFormat === "part suspended" || statusFormat ==="part closure")
 		{
-			trace(tubeName + " = A BIT FUCKED");
+			trace(tubeName.toUpperCase() + " LINE IS A BIT FUCKED");
 		}
 
 		else if(statusFormat === "severe delays" || statusFormat === "not running" || statusFormat === "suspended" || statusFormat === "closed")
 		{
-			trace(tubeName + " = FUCKED");
+			trace(tubeName.toUpperCase() + " LINE IS FUCKED");
 		}
 
 		else
 		{
-			trace(tubeName + " = NOT FUCKED");
+			trace(tubeName.toUpperCase() + " LINE IS NOT FUCKED");
 		}
 
 		trace(system.data_tfl[i].lineStatuses[0].statusSeverityDescription);
