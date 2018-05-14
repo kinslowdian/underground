@@ -2,8 +2,8 @@
 
 :root
 {
-	--lineTXT: 1.2vh;
-	--infoTXT: 2.4vh;
+	--lineTXT: 2.8vh;
+	--infoTXT: 2.8vh;
 }
 
 html, body
@@ -72,7 +72,7 @@ html, body
 
 .gl p, .gr p
 {
-	text-shadow: 0px 4px 10px rgba(20, 20, 20, 0.2);
+	/*text-shadow: 0px 4px 10px rgba(20, 20, 20, 0.2);*/
 }
 
 .gl p
@@ -88,139 +88,150 @@ html, body
 .g0
 {
 	grid-row: 1;
-	background: #b05f0f;
+	color: #b05f0f;
 }
 
 .g1
 {
 	grid-row: 2;
-	background: #ee2e22;
+	color: #ee2e22;
 }
 
 .g2
 {
 	grid-row: 3;
-	background: #fed105;
+	color: #fed105;
 }
 
 .g3
 {
 	grid-row: 4;
-	background: #00843d;
+	color: #00843d;
 }
 
 .g4
 {
 	grid-row: 5;
-	background: #f386a0;
+	color: #f386a0;
 }
 
 .g5
 {
 	grid-row: 6;
-	background: #959ca1;
+	color: #959ca1;
 }
 
 .g6
 {
 	grid-row: 7;
-	background: #97015e;
+	color: #97015e;
 }
 
 .g7
 {
 	grid-row: 8;
-	background: #231f20;
+	color: #231f20;
 }
 
 .g8
 {
 	grid-row: 9;
-	background: #1b3f94;
+	color: #1b3f94;
 }
 
 .g9
 {
 	grid-row: 10;
-	background: #069ddc;
+	color: #069ddc;
 }
 
 .g10
 {
 	grid-row: 11;
-	background: #84cdbc;
+	color: #84cdbc;
 }
 
 .gr div
 {
-	background: rgba(0, 0, 0, 0.2);
+	background: rgba(255, 255, 255, 0.8);
 	height: 100%;
 }
 
 .i0
 {
 	grid-row: 1;
+	color: #b05f0f;
 	background: #b05f0f;
 }
 
 .i1
 {
 	grid-row: 2;
+	color: #ee2e22;
 	background: #ee2e22;
 }
 
 .i2
 {
 	grid-row: 3;
+	color: #fed105;
 	background: #fed105;
 }
 
 .i3
 {
 	grid-row: 4;
+	color: #00843d;
 	background: #00843d;
 }
 
 .i4
 {
 	grid-row: 5;
+	color: #f386a0;
 	background: #f386a0;
 }
 
 .i5
 {
 	grid-row: 6;
+	color: #959ca1;
 	background: #959ca1;
 }
 
 .i6
 {
 	grid-row: 7;
+	color: #97015e;
 	background: #97015e;
 }
 
 .i7
 {
 	grid-row: 8;
+	color: #231f20;
 	background: #231f20;
 }
 
 .i8
 {
 	grid-row: 9;
+	color: #1b3f94;
 	background: #1b3f94;
 }
 
 .i9
 {
 	grid-row: 10;
+	color: #069ddc;
 	background: #069ddc;
 }
 
 .i10
 {
 	grid-row: 11;
-	background-color: #84cdbc;
+	color: #84cdbc;
+	background: #84cdbc;
 }
 
 
@@ -229,23 +240,39 @@ html, body
 /* MOBILE */
 @media only screen and (min-width: 300px)
 {
-
+	:root
+	{
+		--lineTXT: 1.8vh;
+		--infoTXT: 1.8vh;
+	}
 }
 
 /* PHABLET */
 @media only screen and (min-width: 600px)
 {
-	
+	:root
+	{
+		--lineTXT: 2.2vh;
+		--infoTXT: 2.2vh;
+	}	
 }
 
 /* TABLET */
 @media only screen and (min-width: 900px)
 {
-
+	:root
+	{
+		--lineTXT: 2.8vh;
+		--infoTXT: 2.8vh;
+	}
 }
 
 /* DESKTOP */
 @media only screen and (min-width: 1200px)
 {
-
+	:root
+	{
+		--lineTXT: 3.2vh;
+		--infoTXT: 3.2vh;
+	}
 }
