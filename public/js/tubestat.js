@@ -87,7 +87,7 @@ function tfl_run()
 
 		else
 		{
-			statusMsg = "OK";
+			statusMsg = goodMSG_ARR[Math.floor(Math.random() * goodMSG_ARR.length)];
 		}
 
 		displayList["lineName" + i].innerHTML = tubeMsg;
