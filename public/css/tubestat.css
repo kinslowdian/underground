@@ -3,6 +3,8 @@
 :root
 {
 	--grid-column-width: 33.33%;
+	--lineTXT: 1.5vh;
+	--infoTXT: 3vh;
 }
 
 html, body
@@ -12,7 +14,6 @@ html, body
 
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
-	font-size: 1.5vh;
 
 	color: #fff;
 }
@@ -44,7 +45,6 @@ html, body
 .grid-main
 {
 	display: grid;
-	grid-template-columns: var(--grid-column-width) var(--grid-column-width) var(--grid-column-width);
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 	grid-gap: 0;
@@ -63,81 +63,156 @@ html, body
 	transform: translateY(-50%);
 }
 
-.g0
+.gl
 {
 	grid-column: 1;
+
+	font-size: var(--lineTXT);
+}
+
+.gr
+{
+	grid-column: 2;
+
+	font-size: var(--infoTXT);
+}
+
+.g0
+{
 	grid-row: 1;
 	background: #b05f0f;
 }
 
 .g1
 {
-	grid-column: 1;
 	grid-row: 2;
 	background: #ee2e22;
 }
 
 .g2
 {
-	grid-column: 1;
 	grid-row: 3;
 	background: #fed105;
 }
 
 .g3
 {
-	grid-column: 1;
 	grid-row: 4;
 	background: #00843d;
 }
 
 .g4
 {
-	grid-column: 1;
 	grid-row: 5;
 	background: #f386a0;
 }
 
 .g5
 {
-	grid-column: 1;
 	grid-row: 6;
 	background: #959ca1;
 }
 
 .g6
 {
-	grid-column: 1;
 	grid-row: 7;
 	background: #97015e;
 }
 
 .g7
 {
-	grid-column: 1;
 	grid-row: 8;
 	background: #231f20;
 }
 
 .g8
 {
-	grid-column: 1;
 	grid-row: 9;
 	background: #1b3f94;
 }
 
 .g9
 {
-	grid-column: 1;
 	grid-row: 10;
 	background: #069ddc;
 }
 
 .g10
 {
-	grid-column: 1;
 	grid-row: 11;
 	background: #84cdbc;
+}
+
+.gr div
+{
+	background: rgba(0, 0, 0, 0.2);
+	height: 100%;
+}
+
+.i0
+{
+	grid-row: 1;
+	background: #b05f0f;
+}
+
+.i1
+{
+	grid-row: 2;
+	background: #ee2e22;
+}
+
+.i2
+{
+	grid-row: 3;
+	background: #fed105;
+}
+
+.i3
+{
+	grid-row: 4;
+	background: #00843d;
+}
+
+.i4
+{
+	grid-row: 5;
+	background: #f386a0;
+}
+
+.i5
+{
+	grid-row: 6;
+	background: #959ca1;
+}
+
+.i6
+{
+	grid-row: 7;
+	background: #97015e;
+}
+
+.i7
+{
+	grid-row: 8;
+	background: #231f20;
+}
+
+.i8
+{
+	grid-row: 9;
+	background: #1b3f94;
+}
+
+.i9
+{
+	grid-row: 10;
+	background: #069ddc;
+}
+
+.i10
+{
+	grid-row: 11;
+	background-color: #84cdbc;
 }
 
 .btn

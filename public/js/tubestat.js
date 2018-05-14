@@ -46,7 +46,8 @@ function tfl_create()
 
 	for(let i = 0; i < lineTotal; i++)
 	{
-		displayList["lineInfo" + i] = document.querySelector(".g" + i + " p");
+		displayList["lineName" + i] = document.querySelector(".g" + i + " p");
+		displayList["lineInfo" + i] = document.querySelector(".i" + i + " p");
 	}
 
 	tfl_run();
@@ -60,27 +61,29 @@ function tfl_run()
 		let status = system.data_tfl[i].lineStatuses[0].statusSeverityDescription;
 		let statusFormat = status.toLowerCase();
 		let statusMsg = "";
+		let tubeMsg = tubeName.toUpperCase() + " LINE";
 
 		if(statusFormat === "good service" || statusFormat === "no issues")
 		{
-			statusMsg = tubeName.toUpperCase() + " LINE IS OK";
+			statusMsg = "OK";
 		}
 
 		else if(statusFormat === "minor delays" || statusFormat === "reduced service" || statusFormat === "part suspended" || statusFormat ==="part closure")
 		{
-			statusMsg = tubeName.toUpperCase() + " LINE IS A BIT FUCKED";
+			statusMsg = "A BIT FUCKED";
 		}
 
 		else if(statusFormat === "severe delays" || statusFormat === "not running" || statusFormat === "suspended" || statusFormat === "closed")
 		{
-			statusMsg = tubeName.toUpperCase() + " LINE IS FUCKED";
+			statusMsg = "VERY FUCKED";
 		}
 
 		else
 		{
-			statusMsg = tubeName.toUpperCase() + " LINE IS OK";
+			statusMsg = "OK";
 		}
 
+		displayList["lineName" + i].innerHTML = tubeMsg;
 		displayList["lineInfo" + i].innerHTML = statusMsg;
 
 		trace(system.data_tfl[i].lineStatuses[0].statusSeverityDescription);
