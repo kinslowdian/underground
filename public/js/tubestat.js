@@ -78,11 +78,15 @@ function tfl_run()
 		else if(statusFormat === "minor delays" || statusFormat === "reduced service" || statusFormat === "part suspended" || statusFormat ==="part closure")
 		{
 			statusMsg = "A BIT FUCKED";
+
+			displayList["lineInfo" + i].classList.add("highlight");
 		}
 
 		else if(statusFormat === "severe delays" || statusFormat === "not running" || statusFormat === "suspended" || statusFormat === "closed")
 		{
 			statusMsg = "VERY FUCKED";
+
+			displayList["lineInfo" + i].classList.add("highlight");
 		}
 
 		else

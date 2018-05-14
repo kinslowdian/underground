@@ -235,6 +235,16 @@ html, body
 	background: #84cdbc;
 }
 
+.highlight div
+{
+	background: none;
+}
+
+.highlight p
+{
+	color: #fff;
+}
+
 
 /* !!! RESPONSIVE !!! */
 
