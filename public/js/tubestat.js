@@ -56,6 +56,7 @@ function tfl_create()
 	goodMSG_ARR.push("KINDA GOOD");
 	goodMSG_ARR.push("NICE");
 	goodMSG_ARR.push("BETTER THAN USUAL");
+	goodMSG_ARR.push("YEAH");
 
 	tfl_run();
 }
