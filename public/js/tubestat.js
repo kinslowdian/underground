@@ -61,7 +61,7 @@ function tfl_run()
 		let status = system.data_tfl[i].lineStatuses[0].statusSeverityDescription;
 		let statusFormat = status.toLowerCase();
 		let statusMsg = "";
-		let tubeMsg = tubeName.toUpperCase() + " LINE";
+		let tubeMsg = tubeName.toUpperCase();
 
 		if(statusFormat === "good service" || statusFormat === "no issues")
 		{
