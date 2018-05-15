@@ -10,6 +10,7 @@ var lineTotal;
 var firstRun;
 var timer;
 var jsonDataURL = 'https://api.tfl.gov.uk/Line/Mode/tube/Status?detail=true';
+var currentNum = false;
 
 function pageLoad_init()
 {
@@ -57,9 +58,16 @@ function tfl_create()
 	for(let i = 0; i < lineTotal; i++)
 	{
 		displayList["lineName" + i] = document.querySelector(".g" + i + " p");
+
+		displayList["lineName" + i].addEventListener("click", tfl_event, false);
+
 		displayList["lineInfoMain" + i] = document.querySelector(".i" + i);
 		displayList["lineInfo" + i] = document.querySelector(".i" + i + " p");
 	}
+
+	displayList.info = document.querySelector(".info");
+	displayList.infoContent = document.querySelector(".info-content");
+	displayList.info_bg = document.querySelector(".info-bg");
 
 	tfl_run();
 }
@@ -117,4 +125,34 @@ function tfl_run()
 function refresher()
 {
 	timer = setTimeout(data_init_tfl, 120 * 1000);
+}
+
+function tfl_event(event)
+{
+	event.preventDefault();
+
+	trace(event);
+	trace(event.target.parentNode.dataset.num);
+	trace(event.target.parentNode.style);
+	trace(event.target.innerHTML);
+
+	let targetNum = event.target.parentNode.dataset.num;
+
+	if(!currentNum)
+	{
+
+	}
+
+	else
+	{
+		displayList.info_bg.classList.remove("type" + currentNum + "-bg");
+	}
+
+	displayList.info_bg.classList.add("type" + targetNum + "-bg");
+
+	displayList.info.classList.remove("info-off");
+
+	displayList.infoContent.classList.remove("info-content-off");
+
+	currentNum = targetNum;
 }

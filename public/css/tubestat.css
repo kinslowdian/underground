@@ -22,6 +22,7 @@ html, body
 	width: 100%;
 	height: 100%;
 	position: relative;
+	position: absolute;
 }
 
 .grid-content
@@ -42,9 +43,10 @@ html, body
 	grid-gap: 0;
 }
 
-.grid-item
+.grid-item p
 {
-
+	display: inline-block;
+	cursor: pointer;
 }
 
 .grid-item p
@@ -89,67 +91,67 @@ html, body
 .g0
 {
 	grid-row: 1;
-	color: #b05f0f;
+	/*color: #b05f0f;*/
 }
 
 .g1
 {
 	grid-row: 2;
-	color: #ee2e22;
+	/*color: #ee2e22;*/
 }
 
 .g2
 {
 	grid-row: 3;
-	color: #fed105;
+	/*color: #fed105;*/
 }
 
 .g3
 {
 	grid-row: 4;
-	color: #00843d;
+	/*color: #00843d;*/
 }
 
 .g4
 {
 	grid-row: 5;
-	color: #f386a0;
+	/*color: #f386a0;*/
 }
 
 .g5
 {
 	grid-row: 6;
-	color: #959ca1;
+	/*color: #959ca1;*/
 }
 
 .g6
 {
 	grid-row: 7;
-	color: #97015e;
+	/*color: #97015e;*/
 }
 
 .g7
 {
 	grid-row: 8;
-	color: #231f20;
+	/*color: #231f20;*/
 }
 
 .g8
 {
 	grid-row: 9;
-	color: #1b3f94;
+	/*color: #1b3f94;*/
 }
 
 .g9
 {
 	grid-row: 10;
-	color: #069ddc;
+	/*color: #069ddc;*/
 }
 
 .g10
 {
 	grid-row: 11;
-	color: #84cdbc;
+	/*color: #84cdbc;*/
 }
 
 .gr div
@@ -243,6 +245,112 @@ html, body
 .highlight p
 {
 	color: #fff;
+}
+
+.type0-color{color: #b05f0f;}
+.type1-color{color: #ee2e22;}
+.type2-color{color: #fed105;}
+.type3-color{color: #00843d;}
+.type4-color{color: #f386a0;}
+.type5-color{color: #959ca1;}
+.type6-color{color: #97015e;}
+.type7-color{color: #231f20;}
+.type8-color{color: #1b3f94;}
+.type9-color{color: #069ddc;}
+.type10-color{color: #84cdbc;}
+
+.type0-bg{background: #b05f0f;}
+.type1-bg{background: #ee2e22;}
+.type2-bg{background: #fed105;}
+.type3-bg{background: #00843d;}
+.type4-bg{background: #f386a0;}
+.type5-bg{background: #959ca1;}
+.type6-bg{background: #97015e;}
+.type7-bg{background: #231f20;}
+.type8-bg{background: #1b3f94;}
+.type9-bg{background: #069ddc;}
+.type10-bg{background: #84cdbc;}
+
+.info
+{
+	width: 100%;
+	height: 100%;
+
+	position: absolute;
+}
+
+.info-off
+{
+	visibility: hidden;
+	z-index: -1;
+}
+
+.info-content
+{
+	width: inherit;
+	height: inherit;
+
+	position: relative;
+
+	overflow: hidden;
+
+	transition: 300ms linear;
+}
+
+.info-content-off
+{
+	opacity: 0;
+}
+
+.info-bg
+{
+	width: inherit;
+	height: inherit;
+
+	position: absolute;
+}
+
+.info-fx
+{
+	width: inherit;
+	height: inherit;
+
+	position: absolute;
+
+	background: rgba(255, 255, 255, 0.8);
+}
+
+.info-inner
+{
+	width: inherit;
+	height: inherit;
+
+	position: absolute;
+
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	grid-gap: 0;
+}
+
+.info-inner div
+{
+	outline: 1px solid white;
+}
+
+.info-top
+{
+	grid-row: 1;
+}
+
+.info-mid
+{
+	grid-row: 2 / 4;
+}
+
+.info-btm
+{
+	grid-row: 4;
 }
 
 
