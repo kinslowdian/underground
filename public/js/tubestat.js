@@ -7,11 +7,13 @@ var trace = function(msg){ console.log(msg); };
 var system;
 var displayList;
 var lineTotal;
-var goodMSG_ARR;
+var firstRun;
+var timer;
+var jsonDataURL = 'https://api.tfl.gov.uk/Line/Mode/tube/Status?detail=true';
 
 function pageLoad_init()
 {
-	trace("pageLoad_init();");
+	firstRun = true;
 
 	grid_init();
 }
@@ -27,18 +29,25 @@ function grid_init()
 
 function data_init_tfl()
 {
-	load_data_json('https://api.tfl.gov.uk/Line/Mode/tube/Status?detail=true', data_loaded_tfl);
+	load_data_json(jsonDataURL, data_loaded_tfl);
 }
 
 function data_loaded_tfl(data)
 {
 	system.data_tfl = JSON.parse(data);
 
-	trace(system);
-	trace(system.data_tfl.length);
-	trace(system.data_tfl[0].lineStatuses[0].statusSeverityDescription);
+	if(firstRun)
+	{
+		firstRun = false;
 
-	tfl_create();
+		tfl_create();
+	}
+
+	else
+	{
+		tfl_run();
+	}
+	
 }
 
 function tfl_create()
@@ -51,13 +60,6 @@ function tfl_create()
 		displayList["lineInfoMain" + i] = document.querySelector(".i" + i);
 		displayList["lineInfo" + i] = document.querySelector(".i" + i + " p");
 	}
-
-	goodMSG_ARR = new Array();
-	goodMSG_ARR.push("OK");
-	goodMSG_ARR.push("KINDA GOOD");
-	goodMSG_ARR.push("NICE");
-	goodMSG_ARR.push("BETTER THAN USUAL");
-	goodMSG_ARR.push("YEAH");
 
 	tfl_run();
 }
@@ -74,8 +76,9 @@ function tfl_run()
 
 		if(statusFormat === "good service" || statusFormat === "no issues")
 		{
-			// statusMsg = goodMSG_ARR[Math.floor(Math.random() * goodMSG_ARR.length)];
 			statusMsg = "KINDA GOOD";
+		
+			displayList["lineInfoMain" + i].classList.remove("highlight");
 		}
 
 		else if(statusFormat === "minor delays" || statusFormat === "reduced service" || statusFormat === "part suspended" || statusFormat ==="part closure")
@@ -94,13 +97,17 @@ function tfl_run()
 
 		else
 		{
-			// statusMsg = goodMSG_ARR[Math.floor(Math.random() * goodMSG_ARR.length)];
 			statusMsg = "KINDA GOOD";
 		}
 
 		displayList["lineName" + i].innerHTML = tubeMsg;
 		displayList["lineInfo" + i].innerHTML = statusMsg;
-
-		trace(system.data_tfl[i].lineStatuses[0].statusSeverityDescription);
 	}
+
+	refresher();
+}
+
+function refresher()
+{
+	timer = setTimeout(data_init_tfl, 120 * 1000);
 }
