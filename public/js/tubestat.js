@@ -88,7 +88,14 @@ function tfl_run()
 			displayList["lineInfoMain" + i].classList.add("highlight");
 		}
 
-		else if(statusFormat === "severe delays" || statusFormat === "not running" || statusFormat === "suspended" || statusFormat === "closed")
+		else if(statusFormat === "not running" || statusFormat === "closed")
+		{
+			statusMsg = "FUCKED BY OTHERS";
+
+			displayList["lineInfoMain" + i].classList.add("highlight");
+		}
+
+		else if(statusFormat === "severe delays" || statusFormat === "suspended")
 		{
 			statusMsg = "VERY FUCKED";
 
