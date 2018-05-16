@@ -68,6 +68,8 @@ function tfl_create()
 	displayList.info = document.querySelector(".info");
 	displayList.infoContent = document.querySelector(".info-content");
 	displayList.info_bg = document.querySelector(".info-bg");
+	displayList.info_line = document.querySelector(".info-line");
+	displayList.info_close = document.querySelector(".info-close");
 
 	tfl_run();
 }
@@ -146,13 +148,42 @@ function tfl_event(event)
 	else
 	{
 		displayList.info_bg.classList.remove("type" + currentNum + "-bg");
+		displayList.info_line.classList.remove("type" + currentNum + "-color");
+		displayList.info_close.classList.remove("type" + currentNum + "-color");
 	}
 
 	displayList.info_bg.classList.add("type" + targetNum + "-bg");
+	displayList.info_line.classList.add("type" + targetNum + "-color");
+	displayList.info_close.classList.add("type" + targetNum + "-color");
+
+	displayList.info_line.innerHTML = system.data_tfl[targetNum].id;
 
 	displayList.info.classList.remove("info-off");
 
 	displayList.infoContent.classList.remove("info-content-off");
 
+	displayList.info_close.addEventListener("click", tfl_close, false);
+
 	currentNum = targetNum;
 }
+
+function tfl_close(event)
+{
+	displayList.info_close.removeEventListener("click", tfl_close, false);
+
+	displayList.infoContent.addEventListener("transitionend", tfl_purge, false);
+
+	displayList.infoContent.classList.add("info-content-off");
+}
+
+function tfl_purge(event)
+{
+	displayList.infoContent.removeEventListener("transitionend", tfl_purge, false);
+
+	displayList.info_line.innerHTML = "";
+
+	displayList.info.classList.add("info-off");
+}
+
+
+
