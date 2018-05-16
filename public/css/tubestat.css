@@ -66,7 +66,7 @@ html, body
 	font-weight: 400;
 
 	cursor: pointer;
-	
+
 	-webkit-touch-callout: none;
 	touch-callout: none;
 }
@@ -308,6 +308,41 @@ html, body
 	opacity: 0;
 }
 
+.info-close
+{
+	position: absolute;
+
+	display: block;
+
+	top: 0.2em; right: 0.2em;
+
+	font-size: 2.5em;
+	font-weight: 400;
+	line-height: 0.5;
+
+	transform-origin: 50% 50%;
+	transform: rotate(45deg) scale(1);
+
+	-webkit-touch-callout: none;
+	touch-callout: none;
+
+	pointer-events: none;
+
+	transition: 200ms ease-in-out;
+}
+
+.info-close:hover
+{
+	color: #ff0033;
+	transform: rotate(45deg) scale(1.5);
+}
+
+.close-active
+{
+	pointer-events: all;
+	cursor: pointer;
+}
+
 .info-bg
 {
 	width: inherit;
@@ -341,7 +376,7 @@ html, body
 
 .info-inner div
 {
-	outline: 1px solid white;
+	/*outline: 1px solid white;*/
 }
 
 .info-top
@@ -364,11 +399,11 @@ html, body
 	position: relative;
 
 	display: inline-block;
-	margin-left: 1em;
+	margin-left: 5vw;
 	
 	text-transform: uppercase;
 
-	font-size: 1.5em;
+	font-size: 1em;
 	font-weight: 400;
 	letter-spacing: 0.3ex;
 
@@ -377,25 +412,49 @@ html, body
 
 }
 
-.info-close
+.info-mid-content
 {
-	position: absolute;
+	width: inherit;
+	position: relative;
+
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.info-description
+{
+	width: 60% !important;
+	position: relative;
+
+	width: inherit;
 
 	display: block;
+	margin-left: 5vw;
 
-	top: 0.2em; right: 0.2em;
+	/*text-transform: lowercase;*/
+	text-transform: uppercase;
 
-	font-size: 2.5em;
+	font-size: 4em;
+	font-weight: 900;
+	line-height: 0.8;
+}
+
+.info-description-sub
+{
+	position: relative;
+	width: inherit;
+
+	display: block;
+	margin-left: 5vw;
+
+	/*text-transform: lowercase;*/
+	text-transform: uppercase;
+
+	font-size: 0.6em;
 	font-weight: 400;
-	line-height: 0.5;
+	line-height: 1;
 
-	transform-origin: 50% 50%;
-	transform: rotate(45deg);
-
-	cursor: pointer;
-
-	-webkit-touch-callout: none;
-	touch-callout: none;
+	margin-top: 1em;
 }
 
 /* !!! RESPONSIVE !!! */

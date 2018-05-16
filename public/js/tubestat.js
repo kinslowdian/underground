@@ -70,6 +70,7 @@ function tfl_create()
 	displayList.info_bg = document.querySelector(".info-bg");
 	displayList.info_line = document.querySelector(".info-line");
 	displayList.info_close = document.querySelector(".info-close");
+	displayList.info_description = document.querySelector(".info-description");
 
 	tfl_run();
 }
@@ -150,13 +151,17 @@ function tfl_event(event)
 		displayList.info_bg.classList.remove("type" + currentNum + "-bg");
 		displayList.info_line.classList.remove("type" + currentNum + "-color");
 		displayList.info_close.classList.remove("type" + currentNum + "-color");
+		displayList.info_description.classList.remove("type" + currentNum + "-color");
 	}
 
 	displayList.info_bg.classList.add("type" + targetNum + "-bg");
 	displayList.info_line.classList.add("type" + targetNum + "-color");
 	displayList.info_close.classList.add("type" + targetNum + "-color");
+	displayList.info_description.classList.add("type" + targetNum + "-color");
 
-	displayList.info_line.innerHTML = system.data_tfl[targetNum].id;
+	displayList.info_line.innerHTML = "THE " + system.data_tfl[targetNum].id + " LINE";
+
+	displayList.info_close.classList.add("close-active");
 
 	displayList.info.classList.remove("info-off");
 
@@ -170,6 +175,8 @@ function tfl_event(event)
 function tfl_close(event)
 {
 	displayList.info_close.removeEventListener("click", tfl_close, false);
+
+	displayList.info_close.classList.remove("close-active");
 
 	displayList.infoContent.addEventListener("transitionend", tfl_purge, false);
 
