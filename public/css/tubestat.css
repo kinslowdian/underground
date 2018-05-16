@@ -334,7 +334,7 @@ html, body
 .info-close:hover
 {
 	color: #ff0033;
-	transform: rotate(45deg) scale(1.5);
+	transform: rotate(45deg) scale(1.2);
 }
 
 .close-active
@@ -446,6 +446,7 @@ html, body
 
 	display: block;
 	margin-left: 5vw;
+	margin-top: 2em;
 
 	/*text-transform: lowercase;*/
 	text-transform: uppercase;
@@ -453,8 +454,6 @@ html, body
 	font-size: 0.6em;
 	font-weight: 400;
 	line-height: 1;
-
-	margin-top: 1em;
 }
 
 /* !!! RESPONSIVE !!! */

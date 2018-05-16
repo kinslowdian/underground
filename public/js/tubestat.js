@@ -65,12 +65,13 @@ function tfl_create()
 		displayList["lineInfo" + i] = document.querySelector(".i" + i + " p");
 	}
 
-	displayList.info = document.querySelector(".info");
-	displayList.infoContent = document.querySelector(".info-content");
-	displayList.info_bg = document.querySelector(".info-bg");
-	displayList.info_line = document.querySelector(".info-line");
-	displayList.info_close = document.querySelector(".info-close");
-	displayList.info_description = document.querySelector(".info-description");
+	displayList.info 					= document.querySelector(".info");
+	displayList.infoContent 			= document.querySelector(".info-content");
+	displayList.info_bg 				= document.querySelector(".info-bg");
+	displayList.info_line 				= document.querySelector(".info-line");
+	displayList.info_close 				= document.querySelector(".info-close");
+	displayList.info_description 		= document.querySelector(".info-description");
+	displayList.info_description_sub 	= document.querySelector(".info-description-sub");
 
 	tfl_run();
 }
@@ -152,12 +153,14 @@ function tfl_event(event)
 		displayList.info_line.classList.remove("type" + currentNum + "-color");
 		displayList.info_close.classList.remove("type" + currentNum + "-color");
 		displayList.info_description.classList.remove("type" + currentNum + "-color");
+		displayList.info_description_sub.classList.remove("type" + currentNum + "-color");
 	}
 
 	displayList.info_bg.classList.add("type" + targetNum + "-bg");
 	displayList.info_line.classList.add("type" + targetNum + "-color");
 	displayList.info_close.classList.add("type" + targetNum + "-color");
 	displayList.info_description.classList.add("type" + targetNum + "-color");
+	displayList.info_description_sub.classList.add("type" + targetNum + "-color");
 
 	displayList.info_line.innerHTML = "THE " + system.data_tfl[targetNum].id + " LINE";
 
