@@ -2,8 +2,7 @@
 
 :root
 {
-	--lineTXT: 2.8vh;
-	--infoTXT: 2.8vh;
+
 }
 
 html, body
@@ -62,7 +61,7 @@ html, body
 {
 	grid-column: 1;
 
-	font-size: var(--lineTXT);
+	font-size: 1em;
 	font-weight: 400;
 
 	cursor: pointer;
@@ -75,7 +74,7 @@ html, body
 {
 	grid-column: 2;
 
-	font-size: var(--infoTXT);
+	font-size: 1em;
 	font-weight: 900;
 }
 
@@ -97,67 +96,56 @@ html, body
 .g0
 {
 	grid-row: 1;
-	/*color: #b05f0f;*/
 }
 
 .g1
 {
 	grid-row: 2;
-	/*color: #ee2e22;*/
 }
 
 .g2
 {
 	grid-row: 3;
-	/*color: #fed105;*/
 }
 
 .g3
 {
 	grid-row: 4;
-	/*color: #00843d;*/
 }
 
 .g4
 {
 	grid-row: 5;
-	/*color: #f386a0;*/
 }
 
 .g5
 {
 	grid-row: 6;
-	/*color: #959ca1;*/
 }
 
 .g6
 {
 	grid-row: 7;
-	/*color: #97015e;*/
 }
 
 .g7
 {
 	grid-row: 8;
-	/*color: #231f20;*/
 }
 
 .g8
 {
 	grid-row: 9;
-	/*color: #1b3f94;*/
 }
 
 .g9
 {
 	grid-row: 10;
-	/*color: #069ddc;*/
 }
 
 .g10
 {
 	grid-row: 11;
-	/*color: #84cdbc;*/
 }
 
 .gr div
@@ -170,77 +158,66 @@ html, body
 {
 	grid-row: 1;
 	color: #b05f0f;
-	background: #b05f0f;
 }
 
 .i1
 {
 	grid-row: 2;
 	color: #ee2e22;
-	background: #ee2e22;
 }
 
 .i2
 {
 	grid-row: 3;
 	color: #fed105;
-	background: #fed105;
 }
 
 .i3
 {
 	grid-row: 4;
 	color: #00843d;
-	background: #00843d;
 }
 
 .i4
 {
 	grid-row: 5;
 	color: #f386a0;
-	background: #f386a0;
 }
 
 .i5
 {
 	grid-row: 6;
 	color: #959ca1;
-	background: #959ca1;
 }
 
 .i6
 {
 	grid-row: 7;
 	color: #97015e;
-	background: #97015e;
 }
 
 .i7
 {
 	grid-row: 8;
 	color: #231f20;
-	background: #231f20;
 }
 
 .i8
 {
 	grid-row: 9;
 	color: #1b3f94;
-	background: #1b3f94;
 }
 
 .i9
 {
 	grid-row: 10;
 	color: #069ddc;
-	background: #069ddc;
 }
 
 .i10
 {
 	grid-row: 11;
 	color: #84cdbc;
-	background: #84cdbc;
 }
 
 .highlight div
@@ -301,6 +278,8 @@ html, body
 	position: relative;
 
 	transition: 300ms linear;
+
+	font-size: 2.8vh;
 }
 
 .info-content-off
@@ -316,7 +295,7 @@ html, body
 
 	top: 0.2em; right: 0.2em;
 
-	font-size: 2.5em;
+	font-size: 2em;
 	font-weight: 400;
 	line-height: 0.5;
 
@@ -437,6 +416,8 @@ html, body
 	font-size: 4em;
 	font-weight: 900;
 	line-height: 0.8;
+
+	hyphens: none;
 }
 
 .info-description-sub
@@ -453,7 +434,7 @@ html, body
 
 	font-size: 0.6em;
 	font-weight: 400;
-	line-height: 1;
+	line-height: 1.5;
 	letter-spacing: 0.3ex;
 }
 
@@ -464,13 +445,24 @@ html, body
 {
 	:root
 	{
-		--lineTXT: 1.8vh;
-		--infoTXT: 1.8vh;
+
 	}
 
-	html, body
+	html, body, .info-content
 	{
-		font-size: 1.8vh;
+		font-size: 2.8vh;
+	}
+
+	.info-description
+	{
+		width: 90% !important;
+
+		hyphens: auto;
+	}
+
+	.info-description-sub
+	{
+		width: 60% !important;
 	}
 }
 
@@ -479,13 +471,24 @@ html, body
 {
 	:root
 	{
-		--lineTXT: 2.2vh;
-		--infoTXT: 2.2vh;
+
 	}
 
-	html, body
+	html, body, .info-content
 	{
-		font-size: 2.2vh;
+		font-size: 3vh;
+	}
+
+	.info-description
+	{
+		width: 70% !important;
+
+		hyphens: auto;
+	}
+
+	.info-description-sub
+	{
+		width: 60% !important;
 	}
 }
 
@@ -494,13 +497,24 @@ html, body
 {
 	:root
 	{
-		--lineTXT: 2.8vh;
-		--infoTXT: 2.8vh;
+
 	}
 
-	html, body
+	html, body, .info-content
 	{
 		font-size: 2.8vh;
+	}
+
+	.info-description
+	{
+		width: 70% !important;
+
+		hyphens: none;
+	}
+
+	.info-description-sub
+	{
+		width: 60% !important;
 	}
 }
 
@@ -509,12 +523,23 @@ html, body
 {
 	:root
 	{
-		--lineTXT: 3.2vh;
-		--infoTXT: 3.2vh;
+
 	}
 
-	html, body
+	html, body, .info-content
 	{
 		font-size: 3.2vh;
+	}
+
+	.info-description
+	{
+		width: 60% !important;
+
+		hyphens: none;
+	}
+
+	.info-description-sub
+	{
+		width: 60% !important;
 	}
 }

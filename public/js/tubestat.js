@@ -9,6 +9,7 @@ var displayList;
 var lineTotal;
 var firstRun;
 var timer;
+var jsonMainURL = 'public/data/message.json';
 var jsonDataURL = 'https://api.tfl.gov.uk/Line/Mode/tube/Status?detail=true';
 var currentNum = false;
 
@@ -25,7 +26,7 @@ function setup_init()
 
 	displayList = {};
 
-	load_data_json("public/data/message.json", setup_loaded);
+	load_data_json(jsonMainURL, setup_loaded);
 }
 
 function setup_loaded(data)
