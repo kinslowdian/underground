@@ -1,0 +1,36 @@
+{
+	"main":
+	{
+		"output0": "A BIT FUCKED",
+		"output1": "FUCKED BY OTHERS",
+		"output2": "VERY FUCKED",
+		"output3": "KINDA GOOD"
+	},
+
+	"info":
+	{
+		"output0":
+		{
+			"main": "It's all starting to turn into shit",
+			"sub": "Things like this are bound to only get worse"
+		},
+
+		"output1":
+		{
+			"main": "Some fuckers are working on the line",
+			"sub": "Find a bus, taxi, or just walk for fuck's sake"
+		},
+
+		"output2":
+		{
+			"main": "It's proper fucked up",
+			"sub": "Stay at home till the bastard service is running again"
+		},
+
+		"output3":
+		{
+			"main": "Everything seems ok",
+			"sub": "Make the most of it, before it fucks right up"
+		}
+	}
+}

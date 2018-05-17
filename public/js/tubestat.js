@@ -16,14 +16,21 @@ function pageLoad_init()
 {
 	firstRun = true;
 
-	grid_init();
+	setup_init();
 }
 
-function grid_init()
+function setup_init()
 {
 	system = {};
 
 	displayList = {};
+
+	load_data_json("public/data/message.json", setup_loaded);
+}
+
+function setup_loaded(data)
+{
+	system.data_main = JSON.parse(data);
 
 	data_init_tfl();
 }
@@ -57,6 +64,7 @@ function tfl_create()
 
 	for(let i = 0; i < lineTotal; i++)
 	{
+		displayList["lineNameMain" + i] = document.querySelector(".g" + i);
 		displayList["lineName" + i] = document.querySelector(".g" + i + " p");
 
 		displayList["lineName" + i].addEventListener("click", tfl_event, false);
@@ -85,39 +93,47 @@ function tfl_run()
 		let statusFormat = status.toLowerCase();
 		let statusMsg = "";
 		let tubeMsg = tubeName.toUpperCase();
+		let statusCode = 99;
 
 		if(statusFormat === "good service" || statusFormat === "no issues")
 		{
-			statusMsg = "KINDA GOOD";
+			statusMsg = system.data_main.main.output3;
+			statusCode = 3;
 		
 			displayList["lineInfoMain" + i].classList.remove("highlight");
 		}
 
 		else if(statusFormat === "minor delays" || statusFormat === "reduced service" || statusFormat === "part suspended" || statusFormat ==="part closure")
 		{
-			statusMsg = "A BIT FUCKED";
+			statusMsg = system.data_main.main.output0;
+			statusCode = 0;
 
 			displayList["lineInfoMain" + i].classList.add("highlight");
 		}
 
 		else if(statusFormat === "not running" || statusFormat === "closed")
 		{
-			statusMsg = "FUCKED BY OTHERS";
+			statusMsg = system.data_main.main.output1;
+			statusCode = 1;
 
 			displayList["lineInfoMain" + i].classList.add("highlight");
 		}
 
 		else if(statusFormat === "severe delays" || statusFormat === "suspended")
 		{
-			statusMsg = "VERY FUCKED";
+			statusMsg = system.data_main.main.output2;
+			statusCode = 2;
 
 			displayList["lineInfoMain" + i].classList.add("highlight");
 		}
 
 		else
 		{
-			statusMsg = "KINDA GOOD";
+			statusMsg = system.data_main.main.output_good;
+			statusCode = 3;
 		}
+
+		displayList["lineNameMain" + i].setAttribute("data-status", statusCode);
 
 		displayList["lineName" + i].innerHTML = tubeMsg;
 		displayList["lineInfo" + i].innerHTML = statusMsg;
@@ -135,12 +151,8 @@ function tfl_event(event)
 {
 	event.preventDefault();
 
-	trace(event);
-	trace(event.target.parentNode.dataset.num);
-	trace(event.target.parentNode.style);
-	trace(event.target.innerHTML);
-
 	let targetNum = event.target.parentNode.dataset.num;
+	let targetStatusNum = event.target.parentNode.dataset.status;
 
 	if(!currentNum)
 	{
@@ -163,6 +175,8 @@ function tfl_event(event)
 	displayList.info_description_sub.classList.add("type" + targetNum + "-color");
 
 	displayList.info_line.innerHTML = "THE " + system.data_tfl[targetNum].id + " LINE";
+	displayList.info_description.innerHTML = system.data_main.info["output" + targetStatusNum].main;
+	displayList.info_description_sub.innerHTML = system.data_main.info["output" + targetStatusNum].sub;
 
 	displayList.info_close.classList.add("close-active");
 
@@ -173,6 +187,8 @@ function tfl_event(event)
 	displayList.info_close.addEventListener("click", tfl_close, false);
 
 	currentNum = targetNum;
+
+	trace(system.data_tfl[targetNum]);
 }
 
 function tfl_close(event)
@@ -191,6 +207,8 @@ function tfl_purge(event)
 	displayList.infoContent.removeEventListener("transitionend", tfl_purge, false);
 
 	displayList.info_line.innerHTML = "";
+	displayList.info_description.innerHTML = "";
+	displayList.info_description_sub.innerHTML = "";
 
 	displayList.info.classList.add("info-off");
 }
