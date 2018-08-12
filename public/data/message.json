@@ -11,8 +11,8 @@
 	{
 		"output0":
 		{
-			"main": "It's all starting to turn into shit",
-			"sub": "Things like this are bound to only get worse"
+			"main": "It's getting a bit shitty",
+			"sub": "Things like this are bound to get fucking worse"
 		},
 
 		"output1":
@@ -24,13 +24,13 @@
 		"output2":
 		{
 			"main": "It's proper fucked up",
-			"sub": "Stay at home till the bastard service is running again"
+			"sub": "Cancel plans, phone in sick, its all fucked"
 		},
 
 		"output3":
 		{
-			"main": "Everything seems ok",
-			"sub": "Make the most of it, before it fucks right up"
+			"main": "It's just about working",
+			"sub": "Make the most of it, before the shit hits the fan"
 		}
 	}
 }

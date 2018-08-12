@@ -78,6 +78,14 @@ html, body
 	font-weight: 900;
 }
 
+.gr div
+{
+	cursor: pointer;
+
+	-webkit-touch-callout: none;
+	touch-callout: none;
+}
+
 .gl p, .gr p
 {
 	/*text-shadow: 0px 4px 10px rgba(20, 20, 20, 0.2);*/
@@ -86,11 +94,13 @@ html, body
 .gl p
 {
 	letter-spacing: 0.6ex;
+	line-height: 1;
 }
 
 .gr p
 {
 	letter-spacing: 0.3ex;
+	pointer-events: none;
 }
 
 .g0
@@ -413,9 +423,9 @@ html, body
 	/*text-transform: lowercase;*/
 	text-transform: uppercase;
 
-	font-size: 4em;
+	font-size: 3em;
 	font-weight: 900;
-	line-height: 0.8;
+	line-height: 1;
 
 	hyphens: none;
 }
@@ -450,7 +460,7 @@ html, body
 
 	html, body, .info-content
 	{
-		font-size: 2.8vh;
+		font-size: 2vh;
 	}
 
 	.info-description
@@ -476,7 +486,7 @@ html, body
 
 	html, body, .info-content
 	{
-		font-size: 3vh;
+		font-size: 2.4vh;
 	}
 
 	.info-description
@@ -509,7 +519,7 @@ html, body
 	{
 		width: 70% !important;
 
-		hyphens: none;
+		hyphens: auto;
 	}
 
 	.info-description-sub
@@ -535,7 +545,7 @@ html, body
 	{
 		width: 60% !important;
 
-		hyphens: none;
+		hyphens: auto;
 	}
 
 	.info-description-sub

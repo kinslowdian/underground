@@ -72,6 +72,9 @@ function tfl_create()
 
 		displayList["lineInfoMain" + i] = document.querySelector(".i" + i);
 		displayList["lineInfo" + i] = document.querySelector(".i" + i + " p");
+		displayList["lineInfoBlock" + i] = document.querySelector(".i" + i + " > div");
+
+		displayList["lineInfoBlock" + i].addEventListener("click", tfl_event, false);
 	}
 
 	displayList.info 					= document.querySelector(".info");
@@ -135,6 +138,7 @@ function tfl_run()
 		}
 
 		displayList["lineNameMain" + i].setAttribute("data-status", statusCode);
+		displayList["lineInfoMain" + i].setAttribute("data-status", statusCode);
 
 		displayList["lineName" + i].innerHTML = tubeMsg;
 		displayList["lineInfo" + i].innerHTML = statusMsg;
@@ -151,6 +155,8 @@ function refresher()
 function tfl_event(event)
 {
 	event.preventDefault();
+
+	// trace(event);
 
 	let targetNum = event.target.parentNode.dataset.num;
 	let targetStatusNum = event.target.parentNode.dataset.status;
