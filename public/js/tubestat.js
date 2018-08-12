@@ -133,7 +133,7 @@ function tfl_run()
 
 		else
 		{
-			statusMsg = system.data_main.main.output_good;
+			statusMsg = system.data_main.main.output3;
 			statusCode = 3;
 		}
 
@@ -142,6 +142,8 @@ function tfl_run()
 
 		displayList["lineName" + i].innerHTML = tubeMsg;
 		displayList["lineInfo" + i].innerHTML = statusMsg;
+
+		// trace(i + " " + statusMsg + " " + statusCode);
 	}
 
 	refresher();
